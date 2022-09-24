@@ -34,8 +34,6 @@ let packObjectList = [one,three,six,twelve];
 
 
 
-
-
 let glazeMenu = document.getElementById("glazeMenu"); 
 for (let i = 0; i < glazeObjectList.length; i++) 
 {
@@ -47,38 +45,64 @@ for (let i = 0; i < glazeObjectList.length; i++)
 
 }
 
-
-   
-
-
-
-
     
- let packMenu= document.getElementById("packMenu"); 
- for (let j = 0; j < packObjectList.length; j++) 
+let packMenu= document.getElementById("packMenu"); 
+for (let j = 0; j < packObjectList.length; j++) 
     {
         let option2 = document.createElement("option");
         option2.textContent = packObjectList[j].packType;
         packMenu.appendChild(option2);
         console.log(option2);
     }
-    
-    
- 
-
-
+     
 
 const basePrice = 2.49;
 let gPrice = 0.0;
 let pSize = 1;
 let totalPrice = 0.0;
 
-function priceCalculator(element) {
-    let choice = document.getElementById("x");
 
+function glazingChange(element)
+{
 
+    let selectedGlazeOption = element.value;
+    console.log(selectedGlazeOption);
 
+    for (let i = 0; i < glazeObjectList.length; i++)
+    {
+        if(selectedGlazeOption == glazeObjectList[i].glazeType)
+        {
+            gPrice = Number(glazeObjectList[i].glazePrice);
+        }
+    }
+    console.log(gPrice);
+    calculatePrice(gPrice,pSize);
 
 }
 
+
+function packChange(element)
+{
+    let selectedPackOption = element.value;
+    console.log(selectedPackOption);
+
+    for (let i = 0; i < packObjectList.length; i++) 
+    {
+        if(selectedPackOption == packObjectList[i].packType)
+        {
+            pSize = Number(packObjectList[i].packPrice);
+        }
+    }
+    console.log(pSize);
+    calculatePrice(gPrice,pSize);
+}
+
+
+function calculatePrice(gPrice,pSize)
+{
+    totalPrice = (basePrice + gPrice)*pSize;
+    let totalDisplay = document.getElementById("price");
+    totalDisplay.innerText = totalPrice.toFixed(2);
+
+}
 

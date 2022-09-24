@@ -46,20 +46,21 @@
               <div class="menu">
 
               <form action="/action_page.php">
+
                 <label class="formlabel" for="glazeMenu">Glazing:</label>
               
-                <select name="glazing" class="input" id ="glazeMenu" onchange="glazingOptions()">
+                <select name="glazing" class="input" id ="glazeMenu" onchange="glazingChange(this)">
                 </select>
   
                 <label class="formlabel" for="packMenu">Pack size:</label>
-                <select  name="packsize" class="input" id="packMenu" onchange="packOptions()"></select>
+                <select  name="packsize" class="input" id="packMenu" onchange="packChange(this)"></select>
               </form>
 
             </div>  
             
             <div class = "add-to-cart">
 
-              <p id="price">$ 2.49</p>
+              <p>$ <span id="price">2.49</span></p>
               <input type="button" onclick="window.location.href='index_cart.html'" id="btn2" value="Add to Cart">
 
             </div>
