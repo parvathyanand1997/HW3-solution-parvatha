@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Detail Page</title>
     <link rel="stylesheet" href="css/style2.css">
+    <script defer src="js/app.js"></script>
   </head>
 
   <body>
@@ -45,21 +46,13 @@
               <div class="menu">
 
               <form action="/action_page.php">
-                <label class="formlabel" for="glazing">Glazing:</label>
-                <select id="glazing" name="glazing" class="input">
-                  <option value="Keep original">Keep original</option>
-                  <option value="Sugar milk">Sugar milk</option>
-                  <option value="Vanilla milk">Vanilla milk</option>
-                  <option value="Double chocolate">Double chocolate</option>
+                <label class="formlabel" for="glazeMenu">Glazing:</label>
+              
+                <select name="glazing" class="input" id ="glazeMenu" onchange="glazingOptions()">
                 </select>
   
-                <label class="formlabel" for="size">Pack size:</label>
-                <select id="size" name="size" class="input">
-                  <option value="1">1</option>
-                  <option value="3">3</option>
-                  <option value="6">6</option>
-                  <option value="12">12</option>
-                </select>
+                <label class="formlabel" for="packMenu">Pack size:</label>
+                <select  name="packsize" class="input" id="packMenu" onchange="packOptions()"></select>
               </form>
 
             </div>  
